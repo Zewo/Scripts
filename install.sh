@@ -8,7 +8,7 @@ UNAME=`uname`;
 
 if [[ $UNAME == "Darwin" ]]; then
     OS="macOS";
-else if [[ $UNAME == "Linux" ]]; then
+elif [[ $UNAME == "Linux" ]]; then
     OS="Linux";
 else
     echo "❌ Unsupported Operating System: $UNAME";

@@ -6,7 +6,7 @@ UNAME=`uname`;
 
 if [[ $UNAME == "Darwin" ]]; then
     brew install zewo/tap/libdill
-else if [[ $UNAME == "Linux" ]]; then
+elif [[ $UNAME == "Linux" ]]; then
 	if [ "$EUID" -e 0 ] then
 		echo "deb [trusted=yes] http://apt.zewo.io ./" | sudo tee -a /etc/apt/sources.list
     	sudo apt-get update
