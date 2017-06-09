@@ -2,7 +2,8 @@
 
 echo "💼 Building!";
 
-swift build
+~/.swiftenv/shims/swift build
+
 if [[ $? != 0 ]]; then 
     echo "❌ Build Failed!";
     exit 1; 
@@ -10,7 +11,7 @@ fi
 
 echo "🚀 Building Release!";
 
-swift build -c release
+~/.swiftenv/shims/swift build -c release
 
 if [[ $? != 0 ]]; then 
     echo "❌ Release Build Failed!";
@@ -19,7 +20,7 @@ fi
 
 echo "🔎 Testing!";
 
-swift test
+env LD_LIBRARY_PATH='/usr/local/lib:/usr/local/opt/libressl/lib:$LD_LIBRARY_PATH' ~/.swiftenv/shims/swift test
 
 if [[ $? != 0 ]]; then 
     echo "❌ Tests Failed!";
