@@ -1,8 +1,29 @@
 #!/usr/bin/env bash
 
+# Determine OS
+
+UNAME=`uname`;
+
+if [[ $UNAME == "Darwin" ]]; then
+    OS="macOS";
+elif [[ $UNAME == "Linux" ]]; then
+    OS="Linux";
+else
+    echo "❌ Unsupported Operating System: $UNAME";
+    exit 1; 
+fi
+
+if [[ $OS == "macOS" ]]; then
+	SWIFT="swift"
+else
+	SWIFT="~/.swiftenv/shims/swift"
+fi
+
+
+
 echo "💼 Building!";
 
-~/.swiftenv/shims/swift build
+$SWIFT build
 
 if [[ $? != 0 ]]; then 
     echo "❌ Build Failed!";
@@ -11,7 +32,7 @@ fi
 
 echo "🚀 Building Release!";
 
-~/.swiftenv/shims/swift build -c release
+$SWIFT build -c release
 
 if [[ $? != 0 ]]; then 
     echo "❌ Release Build Failed!";
@@ -20,7 +41,7 @@ fi
 
 echo "🔎 Testing!";
 
-env LD_LIBRARY_PATH='/usr/local/lib:/usr/local/opt/libressl/lib:$LD_LIBRARY_PATH' ~/.swiftenv/shims/swift test
+env LD_LIBRARY_PATH='/usr/local/lib:/usr/local/opt/libressl/lib:$LD_LIBRARY_PATH' $SWIFT test
 
 if [[ $? != 0 ]]; then 
     echo "❌ Tests Failed!";
@@ -29,7 +50,7 @@ fi
 
 UNAME=`uname`;
 
-if [[ $UNAME != "Darwin" ]]; then
+if [[ $OS != "macOS" ]]; then
 	echo "✅ Done!"
     exit 0;
 fi
