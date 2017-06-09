@@ -57,10 +57,11 @@ PROJ_OUTPUT=`swift package generate-xcodeproj`;
 PROJ_NAME="${PROJ_OUTPUT/generated: .\//}"
 SCHEME_NAME="${PROJ_NAME/.xcodeproj/}"
 
-echo "🏗 Building Xcode Scheme: $SCHEME_NAME";
+echo rvm_autoupdate_flag=0 >> ~/.rvmrc
+rvm install 2.2.3  > /dev/null
+gem install xcpretty > /dev/null
 
-rvm install 2.2.3
-gem install xcpretty
+echo "🏗 Building Xcode Scheme: $SCHEME_NAME";
 
 WORKING_DIRECTORY=$(PWD) xcodebuild -project $PROJ_NAME -scheme $SCHEME_NAME -sdk macosx10.12 -destination arch=x86_64 -configuration Debug -enableCodeCoverage YES test | xcpretty
 bash <(curl -s https://codecov.io/bash)
