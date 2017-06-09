@@ -16,10 +16,8 @@ fi
 if [[ $OS == "macOS" ]]; then
 	SWIFT="swift"
 else
-	SWIFT="~/.swiftenv/shims/swift"
+	SWIFT="$HOME/.swiftenv/shims/swift"
 fi
-
-
 
 echo "💼 Building!";
 
