@@ -63,7 +63,7 @@ gem install xcpretty > /dev/null
 
 echo "🏗 Building Xcode Scheme: $SCHEME_NAME";
 
-xcodebuild -project $PROJ_NAME -scheme $SCHEME_NAME -configuration Debug -enableCodeCoverage YES test | xcpretty
+xcodebuild -project $PROJ_NAME -scheme $SCHEME_NAME-Package -configuration Debug -enableCodeCoverage YES test | xcpretty
 bash <(curl -s https://codecov.io/bash)
 
 echo "✅ Done!"
