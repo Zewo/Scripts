@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Set default Swift version
+
+SWIFT_VERSION="${SWIFT_VERSION:-3.1}"
+
 echo "🐦 Installing Swift!";
 
 git clone --depth 1 https://github.com/kylef/swiftenv.git ~/.swiftenv

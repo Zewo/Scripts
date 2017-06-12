@@ -2,10 +2,6 @@
 
 echo "☕️ Let's do this!";
 
-# Set default Swift version
-
-SWIFT_VERSION="${SWIFT_VERSION:-3.1}"
-
 # Determine OS
 
 UNAME=`uname`;
