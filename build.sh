@@ -70,6 +70,6 @@ if [[ $? != 0 ]]; then
     exit 1; 
 fi
 
-bash <(curl -s https://codecov.io/bash)
+bash <(curl -s https://codecov.io/bash) -J '$SCHEME_NAME'
 
 echo "✅ Done!"
