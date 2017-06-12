@@ -72,7 +72,6 @@ fi
 
 echo "🗃 Sending Coverage Reports";
 
-sleep 5
-bash <(curl -s https://codecov.io/bash) -J '$SCHEME_NAME'
+bash <(curl -s https://codecov.io/bash) -J $SCHEME_NAME
 
 echo "✅ Done!"
