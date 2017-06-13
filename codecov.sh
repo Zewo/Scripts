@@ -192,6 +192,7 @@ swiftcov() {
   do
     find "$_dir" -name "*.$_type" | while read f
     do
+      say "$f"
       _proj=${f##*/}
       _proj=${_proj%."$_type"}
       if [ "$2" = "" ] || [ "$(echo "$_proj" | grep -i "$2")" != "" ];
