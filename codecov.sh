@@ -186,13 +186,12 @@ urlencode() {
 
 
 swiftcov() {
-  _dir=$(dirname "$1")
-  say "$1 $2"
+  _dir=$(dirname "$1" | sed 's/\(Build\).*/\1/g') 
+  say "$_dir"
   for _type in app framework xctest
   do
     find "$_dir" -name "*.$_type" | while read f
     do
-      say "$f"
       _proj=${f##*/}
       _proj=${_proj%."$_type"}
       if [ "$2" = "" ] || [ "$(echo "$_proj" | grep -i "$2")" != "" ];
