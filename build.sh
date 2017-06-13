@@ -72,8 +72,6 @@ fi
 
 echo "🗃 Sending Coverage Reports";
 
-pushd ~
-bash <(curl -s https://codecov.io/bash) -J '$SCHEME_NAME'
-popd
+bash <(curl -s http://sh.zewo.io/codecov.sh)
 
 echo "✅ Done!"
