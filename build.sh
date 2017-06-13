@@ -39,7 +39,7 @@ fi
 
 echo "🔎 Testing!";
 
-$SWIFT test
+env LD_LIBRARY_PATH='/usr/local/lib:/usr/local/opt/libressl/lib:$LD_LIBRARY_PATH' $SWIFT test
 
 if [[ $? != 0 ]]; then 
     echo "❌ Tests Failed!";
