@@ -187,14 +187,12 @@ urlencode() {
 
 swiftcov() {
   _dir=$(dirname "$1" | sed 's/\(Build\).*/\1/g') 
-  say "$_dir"
   for _type in app framework xctest
   do
     find "$_dir" -name "*.$_type" | while read f
     do
       _proj=${f##*/}
       _proj=${_proj%."$_type"}
-      say "$_proj"
       if [ "$2" = "" ] || [ "$(echo "$_proj" | grep -i "$2")" != "" ];
       then
         say "    $g+$x Building reports for $_proj $_type"
