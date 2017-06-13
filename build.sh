@@ -72,6 +72,6 @@ fi
 
 echo "🗃 Sending Coverage Reports";
 
-bash <(curl -s http://sh.zewo.io/codecov.sh)
+bash <(curl -s https://codecov.io/bash) -X xcodeplist
 
 echo "✅ Done!"
